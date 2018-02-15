@@ -3,10 +3,10 @@ function love.load()
 	love.graphics.setBackgroundColor(100,100,100)
 
 	-- create 2000 objects to move about
-	squares = {}
+	circles = {}
 	for i=0,2000 do
 		local size = 20
-		table.insert(squares, {
+		table.insert(circles, {
 			size = size,
 			x = love.math.random(size,love.graphics.getWidth()-size),
 			y = love.math.random(size,love.graphics.getHeight()-size),
@@ -23,7 +23,7 @@ function love.update(dt)
 
 	--[[ some code to process
 	--]]
-	for _,s in ipairs(squares) do
+	for _,s in ipairs(circles) do
 		s.x = s.x + s.xvel *dt
 		s.y = s.y + s.yvel *dt
 
@@ -40,7 +40,7 @@ end
 
 function love.draw()
 
-	for _,s in ipairs(squares) do
+	for _,s in ipairs(circles) do
 		love.graphics.setColor(s.rgb[1],s.rgb[2],s.rgb[3],255)
 		love.graphics.circle("fill",s.x,s.y,s.size)
 		love.graphics.setColor(0,0,0,255)
